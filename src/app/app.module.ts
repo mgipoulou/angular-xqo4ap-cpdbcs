@@ -9,6 +9,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsAlertComponent } from './products-alert/products-alert.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -27,6 +30,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ProductsAlertComponent,
     ProductDetailsComponent,
     UserProfileComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
   ],
   bootstrap: [AppComponent],
 })
