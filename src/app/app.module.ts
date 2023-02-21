@@ -13,12 +13,24 @@ import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from './environment/environment';
+
 @NgModule({
   imports: [
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'user', component: UserProfileComponent },
     ]),
@@ -34,6 +46,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     RegisterComponent,
     DashboardComponent,
   ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
